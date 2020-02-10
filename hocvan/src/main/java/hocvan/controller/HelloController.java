@@ -27,10 +27,10 @@ public class HelloController {
 		return "home";
 	}
 	
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
-		return "login";
-	}
+//	@RequestMapping(value = "/login", method = RequestMethod.GET)
+//	public String login() {
+//		return "login";
+//	}
 	
 	@RequestMapping(value = "/login2", method = RequestMethod.GET)
 	public String login2() {
