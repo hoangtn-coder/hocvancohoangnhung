@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HelloController {
 	
-	@RequestMapping("/1")
+	@RequestMapping("/")
 	public String index() {
 		return "index";
 	}
@@ -22,15 +22,15 @@ public class HelloController {
 		return "coming-soon";
 	}
 
-	@RequestMapping(value = "/hello", method = RequestMethod.GET)
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String hello() {
 		return "home";
 	}
 	
-//	@RequestMapping(value = "/login", method = RequestMethod.GET)
-//	public String login() {
-//		return "login";
-//	}
+	@RequestMapping(value = "/login1", method = RequestMethod.GET)
+	public String login() {
+		return "login";
+	}
 	
 	@RequestMapping(value = "/login2", method = RequestMethod.GET)
 	public String login2() {

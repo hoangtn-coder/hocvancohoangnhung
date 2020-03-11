@@ -16,7 +16,7 @@ public class LoginController {
 //		return "login3";
 //	}
 
-	@RequestMapping(value = { "/login", "/" })
+	@RequestMapping(value = {"/login"})
 	public String login(@RequestParam(required = false) String message, final Model model) {
 		if (message != null && !message.isEmpty()) {
 			if (message.equals("block_ip")) {
@@ -35,7 +35,7 @@ public class LoginController {
 				model.addAttribute("message", "Login Failed!");
 			}
 		}
-		return "login3";
+		return "login";
 	}
 
 	@RequestMapping("/admin")
@@ -51,6 +51,6 @@ public class LoginController {
 	@RequestMapping("/logout")
 	public String logout(final Model model) {
 		model.addAttribute("message", "Logged out!");
-		return "login3";
+		return "login";
 	}
 }

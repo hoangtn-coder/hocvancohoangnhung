@@ -26,9 +26,13 @@
 		<remember-me key="uniqueAndSecret"
 			token-validity-seconds="1296000" />
 			
-		<session-management invalid-session-url="/login?message=timeout" session-fixation-protection="newSession">
+		<session-management session-fixation-protection="newSession">
       		<concurrency-control error-if-maximum-exceeded="false" expired-url="/login?message=max_session" max-sessions="1" />
     	</session-management>
+    	
+    	<!-- <session-management invalid-session-url="/login?message=timeout" session-fixation-protection="newSession">
+      		<concurrency-control error-if-maximum-exceeded="false" expired-url="/login?message=max_session" max-sessions="1" />
+    	</session-management> -->
 	</http>
 	
 	<!-- <authentication-manager>

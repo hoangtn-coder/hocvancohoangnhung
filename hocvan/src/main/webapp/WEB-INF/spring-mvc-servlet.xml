@@ -12,19 +12,36 @@
 	<context:annotation-config />
 
 	<context:component-scan base-package="hocvan" />
-	
+
 	<mvc:annotation-driven />
-	
+
 	<mvc:resources mapping="/resources/**"
 		location="/resources/" cache-period="31556926" />
 
-	<bean
+	<!-- <bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">
 			<value>/WEB-INF/views/jsp/</value>
 		</property>
 		<property name="suffix">
 			<value>.jsp</value>
+		</property>
+	</bean> -->
+
+	<!-- mapping các template tiles -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+	</bean>
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<!-- khai báo các file định nghĩa layout -->
+				<!-- <value>/WEB-INF/tiles.xml</value> -->
+				<value>classpath:tiles.xml</value>
+			</list>
 		</property>
 	</bean>
 
@@ -56,8 +73,7 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
-		<property name="packagesToScan"
-			value="hocvan.entity" />
+		<property name="packagesToScan" value="hocvan.entity" />
 		<property name="hibernateProperties"
 			value="classpath:hibernate.properties" />
 	</bean>

@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
 encoding//src/main/java/hocvan/security/CustomAuthenticationFailureHandler.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/jsp/layout/base.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/jsp/layout/body.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/jsp/layout/footer.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/jsp/layout/header.jsp=UTF-8
