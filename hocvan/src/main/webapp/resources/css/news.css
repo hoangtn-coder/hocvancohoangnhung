@@ -1,0 +1,25 @@
+.title-news {
+	color: inherit;
+	font-size: 14px;
+	line-height: 160%;
+}
+
+.title-news a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.tag-widget a{
+	display: inline-block;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    padding: 5px 10px;
+    border: 1px dotted #000000;
+    color: #000000;
+}
+
+.item-news p{
+	font-size: 13px;
+}
+

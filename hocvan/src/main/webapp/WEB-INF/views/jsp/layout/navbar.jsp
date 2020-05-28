@@ -22,7 +22,7 @@
 					</li>
 					<li class="nav-item"><a class="nav-link" href="about.html">About</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="services.html">Services</a>
+					<li class="nav-item"><a class="nav-link" href="/hocvan/news">Tin Tức</a>
 					</li>
 					<li class="nav-item"><a class="nav-link" href="contact.html">Contact</a>
 					</li>

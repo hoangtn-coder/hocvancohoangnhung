@@ -10,6 +10,8 @@
 <link href="<spring:url value="/resources/vendor/fontawesome-free/css/all.css"/>" rel="stylesheet" />
 <link href="<spring:url value="/resources/vendor/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet" />
 <link href="<spring:url value="/resources/css/login.css"/>" rel="stylesheet" />
+
+<link href="<spring:url value="/resources/css/login.css"/>" rel="stylesheet" />
 </head>
 <!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
 <body>
@@ -48,6 +50,7 @@
 								type="submit">
 								<i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook
 							</button>
+							<textarea rows="20" cols="20" class="form-control" id="content-new" placeholder="Nội Dung"></textarea>
 						</form>
 					</div>
 				</div>
@@ -59,7 +62,16 @@
 		src="<spring:url value="/resources/vendor/jquery/jquery.slim.js" />"></script>
 	<script
 		src="<spring:url value="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js" />"></script>
+	<script src="<spring:url value="/resources/plugins/ckeditor/ckeditor.js" />"></script>
+	<script src="<spring:url value="/resources/plugins/ckfinder/ckfinder.js" />"></script>
+	<script type="text/javascript">
+	var ckeditor = CKEDITOR.replace('content-new', {
+        height: "300px",
+        width: "100%"
+    } );
 	
+	CKFinder.setupCKEditor(ckeditor,'/hocvan/resources/plugins/ckfinder/');
+	</script>
 </body>
 
 </html>

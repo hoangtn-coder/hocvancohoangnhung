@@ -1,5 +1,6 @@
 package hocvan.controller;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController {
+	private static Logger logger = Logger.getLogger(LoginController.class);
 
 //	@RequestMapping(value = { "/login", "/" })
 //	public String login(@RequestParam(value = "error", required = false) final String error, final Model model) {
@@ -17,22 +19,22 @@ public class LoginController {
 //	}
 
 	@RequestMapping(value = {"/login"})
-	public String login(@RequestParam(required = false) String message, final Model model) {
+	public String login(@RequestParam(required = false) String message, final Model m) {
 		if (message != null && !message.isEmpty()) {
 			if (message.equals("block_ip")) {
-				model.addAttribute("message", "Your IP has been blocked! Pls try again in 30 minutes");
+				m.addAttribute("message", "IP của bạn đã bị chặn! Vui lòng thử lại sau 30 phút");
 			}
 			if (message.equals("timeout")) {
-				model.addAttribute("message", "Time out");
+				m.addAttribute("message", "Time out");
 			}
 			if (message.equals("max_session")) {
-				model.addAttribute("message", "This accout has been login from another device!");
+				m.addAttribute("message", "Tài khoản này đã được đăng nhập từ một thiết bị khác!");
 			}
 			if (message.equals("logout")) {
-				model.addAttribute("message", "Logout!");
+				m.addAttribute("message", "Đăng xuất!");
 			}
 			if (message.equals("error")) {
-				model.addAttribute("message", "Login Failed!");
+				m.addAttribute("message", "Đăng nhập thất bại!");
 			}
 		}
 		return "login";
@@ -42,12 +44,12 @@ public class LoginController {
 	public String admin() {
 		return "admin";
 	}
-
-	@RequestMapping("/user")
-	public String user() {
-		return "user";
+	
+	@RequestMapping("/charts")
+	public String charts() {
+		return "charts";
 	}
-
+	
 	@RequestMapping("/logout")
 	public String logout(final Model model) {
 		model.addAttribute("message", "Logged out!");

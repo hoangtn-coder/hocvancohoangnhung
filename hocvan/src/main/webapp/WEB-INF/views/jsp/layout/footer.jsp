@@ -5,10 +5,10 @@
 			<div class="row">
 				<div class="col-md-3 col-sm-6">
 					<div class="footer-contact">
-						<a href="/" class="footer-logo"><img
+						<!-- <a href="/" class="footer-logo"><img
 							src="//theme.hstatic.net/1000240687/1000308104/14/footer_logo.png?v=403"
-							alt="Sách ơi mở ra"></a>
-						<p>SÁCH ƠI MỞ RA</p>
+							alt="Sách ơi mở ra"></a> -->
+						<h5>Học Văn Cô Hoàng Nhung</h5>
 						<p>Địa chỉ: Số 49, Dịch Vọng, Cầu Giấy, Hà Nội</p>
 						<p>
 							Tổng đài hỗ trợ: <a href="tel:0169 670 8418">0169 670 8418</a>
@@ -24,7 +24,7 @@
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<div class="footer-subscribe">
-						<p class="footer-title">Đăng ký nhận tin</p>
+						<h6>Đăng ký nhận tin</h6>
 						<p>
 							Dự án phát triển văn hoá đọc với các hệ thống lớp học tích hợp
 							"Đọc sách - Trải nghiệm - Hành động"<br> Sách ơi mở ra hiện
@@ -72,7 +72,8 @@
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<div class="footer-connect">
-						<p class="footer-title">Liên kết với chúng tôi</p>
+						<!-- <p class="footer-title">Liên kết với chúng tôi</p> -->
+						<h6>Liên kết với chúng tôi</h6>
 						<iframe
 							src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FHocVanCoHoangNhung%2F&tabs&width=255&height=300&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=1650103138566297"
 							width="255" height="300" style="border: none; overflow: hidden"
@@ -82,7 +83,7 @@
 				</div>
 				<div class="col-md-3 col-sm-6">
 					<div class="footer-nav">
-						<p class="footer-title">Liên kết nhanh</p>
+						<h6>Liên kết nhanh</h6>
 						<ul class="no-bullets">
 
 							<li><a href="/pages/gioi-thieu" title="Giới thiệu"><i

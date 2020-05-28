@@ -1,5 +1,6 @@
 <%@page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!-- Page Content -->
 	<div class="container">
@@ -8,39 +9,29 @@
 
 		<!-- Marketing Icons Section -->
 		<div class="row">
-			<div class="col-lg-4 mb-4">
-				<div class="card h-100">
-					<h4 class="card-header">Bài viết 1</h4>
-					<div class="card-body">
-						<p class="card-text">Mô tả 1.</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-primary">Learn More</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 mb-4">
-				<div class="card h-100">
-					<h4 class="card-header">Bài viết 2</h4>
-					<div class="card-body">
-						<p class="card-text">Mô tả 2.</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-primary">Learn More</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 mb-4">
-				<div class="card h-100">
-					<h4 class="card-header">Bài viết 3</h4>
-					<div class="card-body">
-						<p class="card-text">Mô tả 2.</p>
-					</div>
-					<div class="card-footer">
-						<a href="#" class="btn btn-primary">Learn More</a>
+			<c:forEach items="${lstNews}" var="item" varStatus="loop">
+				<div class="col-lg-4 mb-4">
+					<div class="card h-100">
+						<div class="card-body" >
+							<div class="item-news">
+				                <h3 class="title-news">
+				                	<a href="/hocvan/news-detail?newsId=<c:out value="${item.id}" />" title="<c:out value="${item.title}" />">
+				                		<img class="img-fluid rounded" src='<c:url value="${item.previewImage}" />' alt="">
+				                	</a>
+				                    <a href="/hocvan/news-detail?newsId=<c:out value="${item.id}" />" 
+				                    	title="<c:out value="${item.title}" />">
+				                        <c:out value="${item.title}" />
+				                    </a>
+				                </h3>
+				                <p class="card-text"><c:out value="${item.description}" /></p>
+				            </div>
+						</div>
+						<!-- <div class="card-footer">
+							<a href="#" class="btn btn-primary">Xem thêm</a>
+						</div> -->
 					</div>
 				</div>
-			</div>
+			</c:forEach>
 		</div>
 		<!-- /.row -->
 
@@ -132,13 +123,13 @@
 					<p class="text-muted">Lead Designer</p>
 					<ul class="list-inline social-buttons">
 						<li class="list-inline-item"><a href="#"> <i
-								class="fab fa-twitter"></i>
+								class="fa fa-twitter"></i>
 						</a></li>
 						<li class="list-inline-item"><a href="#"> <i
-								class="fab fa-facebook-f"></i>
+								class="fa fa-facebook-f"></i>
 						</a></li>
 						<li class="list-inline-item"><a href="#"> <i
-								class="fab fa-linkedin-in"></i>
+								class="fa fa-linkedin-in"></i>
 						</a></li>
 					</ul>
 				</div>
@@ -150,13 +141,13 @@
 					<p class="text-muted">Lead Marketer</p>
 					<ul class="list-inline social-buttons">
 						<li class="list-inline-item"><a href="#"> <i
-								class="fab fa-twitter"></i>
+								class="fa fa-twitter"></i>
 						</a></li>
 						<li class="list-inline-item"><a href="#"> <i
-								class="fab fa-facebook-f"></i>
+								class="fa fa-facebook-f"></i>
 						</a></li>
 						<li class="list-inline-item"><a href="#"> <i
-								class="fab fa-linkedin-in"></i>
+								class="fa fa-linkedin-in"></i>
 						</a></li>
 					</ul>
 				</div>
@@ -168,13 +159,13 @@
 					<p class="text-muted">Lead Developer</p>
 					<ul class="list-inline social-buttons">
 						<li class="list-inline-item"><a href="#"> <i
-								class="fab fa-twitter"></i>
+								class="fa fa-twitter"></i>
 						</a></li>
 						<li class="list-inline-item"><a href="#"> <i
-								class="fab fa-facebook-f"></i>
+								class="fa fa-facebook-f"></i>
 						</a></li>
 						<li class="list-inline-item"><a href="#"> <i
-								class="fab fa-linkedin-in"></i>
+								class="fa fa-linkedin-in"></i>
 						</a></li>
 					</ul>
 				</div>
