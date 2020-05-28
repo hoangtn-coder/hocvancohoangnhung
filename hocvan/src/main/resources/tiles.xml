@@ -23,9 +23,21 @@
   
   <definition name="login" template="/WEB-INF/views/jsp/login3.jsp">
   </definition>
+  <definition name="login2" template="/WEB-INF/views/jsp/login2.jsp">
+  </definition>
+  <definition name="login3" template="/WEB-INF/views/jsp/login.jsp">
+  </definition>
   <definition name="user" template="/WEB-INF/views/jsp/user.jsp">
   </definition>
   <definition name="admin" template="/WEB-INF/views/jsp/admin.jsp">
+  </definition>
+  
+  <definition name="news" extends="base">
+  	<put-attribute name="title" value="Tin Tức" />
+    <put-attribute name="body" value="/WEB-INF/views/jsp/news.jsp" />
+    <put-list-attribute name="stylesheets">
+	        <add-attribute value="/resources/css/news.css" />
+	</put-list-attribute>
   </definition>
   
 </tiles-definitions>

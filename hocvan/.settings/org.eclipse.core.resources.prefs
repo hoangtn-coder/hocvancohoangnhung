@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/main/java/hocvan/controller/NewsController.java=UTF-8
 encoding//src/main/java/hocvan/security/CustomAuthenticationFailureHandler.java=UTF-8
 encoding//src/main/webapp/WEB-INF/views/jsp/layout/base.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/jsp/layout/body.jsp=UTF-8
