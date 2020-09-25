@@ -27,6 +27,10 @@
 	</c:forEach>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
+	<c:forEach var="css" items="${stylesheets}">
+		<link rel="stylesheet" type="text/css" href="<c:url value="${css}"/>?v=20200527">
+	</c:forEach>
+	
 	<!-- Bootstrap core CSS -->
 	<link href="<spring:url value="/resources/vendor/bootstrap/css/bootstrap.min.css"/>" rel="stylesheet" />
 	
