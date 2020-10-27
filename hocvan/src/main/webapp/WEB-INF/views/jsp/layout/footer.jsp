@@ -8,17 +8,17 @@
 						<!-- <a href="/" class="footer-logo"><img
 							src="//theme.hstatic.net/1000240687/1000308104/14/footer_logo.png?v=403"
 							alt="Sách ơi mở ra"></a> -->
-						<h5>Học Văn Cô Hoàng Nhung</h5>
-						<p>Địa chỉ: Số 49, Dịch Vọng, Cầu Giấy, Hà Nội</p>
+						<h6>Học Văn Cô Hoàng Nhung</h6>
+						<p>Địa chỉ:...</p>
 						<p>
 							Tổng đài hỗ trợ: <a href="tel:0169 670 8418">0169 670 8418</a>
 						</p>
 						<p>
-							Email: <a href="mailto: sachoimora.ts@gmail.com">
-								sachoimora.ts@gmail.com</a>
+							Email: <a href="mailto: hocvancohoangnhung@gmail.com">
+								hocvancohoangnhung@gmail.com</a>
 						</p>
 						<p>
-							Website: <a href="https://sachoimora.vn">https://sachoimora.vn</a>
+							Website: <a href="https://hocvancohoangnhung.com">https://hocvancohoangnhung.com</a>
 						</p>
 					</div>
 				</div>
@@ -26,12 +26,6 @@
 					<div class="footer-subscribe">
 						<h6>Đăng ký nhận tin</h6>
 						<p>
-							Dự án phát triển văn hoá đọc với các hệ thống lớp học tích hợp
-							"Đọc sách - Trải nghiệm - Hành động"<br> Sách ơi mở ra hiện
-							có 2 cơ sở tại Cầu Giấy, Hà Đông<br> Đăng ký nhận tin! <br>
-
-
-
 						</p>
 						<form name="myForm" onsubmit="validateForm()"
 							accept-charset="UTF-8" action="/account/contact"
@@ -86,25 +80,25 @@
 						<h6>Liên kết nhanh</h6>
 						<ul class="no-bullets">
 
-							<li><a href="/pages/gioi-thieu" title="Giới thiệu"><i
-									class="fa fa-angle-right" aria-hidden="true"></i> Giới thiệu</a></li>
-
-							<li><a href="/pages/nghe-thuat-doc" title="Chương trình"><i
-									class="fa fa-angle-right" aria-hidden="true"></i> Chương trình</a>
+							<li><a href="#" title="Giới thiệu"><i
+									class="fa fa-angle-right" aria-hidden="true"></i> Giới thiệu</a>
 							</li>
 
-							<li><a href="/pages/tai-lieu" title="Tài liệu"><i
-									class="fa fa-angle-right" aria-hidden="true"></i> Tài liệu</a></li>
+							<li><a href="#" title="Lớp học"><i
+									class="fa fa-angle-right" aria-hidden="true"></i> Lớp học</a>
+							</li>
 
-							<li><a href="/pages/lich-hoc" title="Lịch học"><i
-									class="fa fa-angle-right" aria-hidden="true"></i> Lịch học</a></li>
+							<li><a href="#" title="Tài liệu"><i
+									class="fa fa-angle-right" aria-hidden="true"></i> Tài liệu</a>
+							</li>
 
-							<li><a href="/blogs/news" title="Tin tức"><i
-									class="fa fa-angle-right" aria-hidden="true"></i> Tin tức</a></li>
+							<li><a href="#" title="Tin tức"><i
+									class="fa fa-angle-right" aria-hidden="true"></i> Tin tức</a>
+							</li>
 
-							<li><a href="/pages/ve-chung-toi" title="Liên hệ"><i
-									class="fa fa-angle-right" aria-hidden="true"></i> Liên hệ</a></li>
-
+							<li><a href="#" title="Liên hệ"><i
+									class="fa fa-angle-right" aria-hidden="true"></i> Liên hệ</a>
+							</li>
 						</ul>
 					</div>
 				</div>

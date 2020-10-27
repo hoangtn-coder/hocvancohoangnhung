@@ -62,7 +62,7 @@
             <a class="collapse-item" href="/hocvan/login">Đăng nhập</a>
             <a class="collapse-item" href="/hocvan/register">Đăng ký</a>
             <a class="collapse-item" href="/hocvan/forgot-password">Quên mật khẩu</a>
-            <a class="collapse-item" href="/hocvan/404">Trang 404</a>
+            <a class="collapse-item" href="/hocvan/error">Trang Error</a>
             <!-- <div class="collapse-divider"></div>
             <h6 class="collapse-header">Other Pages:</h6>
             <a class="collapse-item" href="404">404 Page</a>

@@ -9,6 +9,8 @@
     <put-attribute name="body" value="" />
     <put-attribute name="footer" value="/WEB-INF/views/jsp/layout/footer.jsp" />
     <put-attribute name="extra-scripts" value="" />
+    <put-list-attribute name="stylesheets" />
+    <put-list-attribute name="javascripts" />
   </definition>
   
   <definition name="blank" template="/WEB-INF/views/jsp/layout/blank.jsp">
@@ -22,68 +24,31 @@
     <put-attribute name="menu" value="/WEB-INF/views/jsp/layout-admin/menu.jsp" />
     <put-attribute name="navbar" value="/WEB-INF/views/jsp/layout-admin/navbar.jsp" />
     <put-attribute name="body" value="" />
+    <put-attribute name="divGrid" value="" />
+    <put-attribute name="divDetail" value="" />
     <put-attribute name="footer" value="/WEB-INF/views/jsp/layout-admin/footer.jsp" />
     <put-attribute name="extra-scripts" value="" />
-  </definition>
-  
-  <definition name="index" extends="base">
-  	<put-attribute name="title" value="Học văn" />
-  	<put-attribute name="header" value="/WEB-INF/views/jsp/layout/header.jsp" />
-    <put-attribute name="body" value="/WEB-INF/views/jsp/layout/body.jsp" />
-    <put-list-attribute name="stylesheets">
-	        <add-attribute value="/resources/css/news.css" />
-	</put-list-attribute>
-  </definition>
-  
-  <definition name="home" extends="base">
-    <put-attribute name="title" value="home" />
-    <put-attribute name="body" value="/WEB-INF/views/jsp/home.jsp" />
-  </definition>
-  
-  <definition name="login" template="/WEB-INF/views/jsp/login3.jsp">
-  </definition>
-  <definition name="login2" template="/WEB-INF/views/jsp/login2.jsp">
-  </definition>
-  <definition name="login3" template="/WEB-INF/views/jsp/login.jsp">
-  </definition>
-  
-  <definition name="news" extends="base">
-  	<put-attribute name="title" value="Tin Tức" />
-    <put-attribute name="body" value="/WEB-INF/views/jsp/news.jsp"/>
-    <put-list-attribute name="stylesheets">
-	        <add-attribute value="/resources/css/news.css" />
-	</put-list-attribute>
-  </definition>
-  
-  <definition name="news-detail" extends="base">
-    <put-attribute name="body" value="/WEB-INF/views/jsp/news-detail.jsp"/>
-    <put-list-attribute name="stylesheets">
-	        <add-attribute value="/resources/css/news.css" />
-	</put-list-attribute>
+    <put-list-attribute name="stylesheets" />
+    <put-list-attribute name="javascripts" />
   </definition>
   
   <!-- ADMIN AND USER -->
-  <definition name="login" extends="blank">
+  <!-- <definition name="login" extends="blank">
   	<put-attribute name="title" value="Đăng nhập" />
     <put-attribute name="body" value="/WEB-INF/views/jsp/admin/login.jsp"/> 
-  </definition>
+  </definition> -->
   
-  <definition name="admin" extends="base-admin">
-  	<put-attribute name="title" value="Admin" />
-    <put-attribute name="body" value="/WEB-INF/views/jsp/admin/admin.jsp"/> 
-  </definition>
-  
-  <definition name="dashboard" extends="base-admin">
+  <!-- <definition name="dashboard" extends="base-admin">
   	<put-attribute name="title" value="Dashboard" />
     <put-attribute name="body" value="/WEB-INF/views/jsp/admin/dashboard.jsp"/>
     <put-list-attribute name="javascripts">
-    	<!-- Page level plugins -->
+    	Page level plugins
   		<add-attribute value="/resources/vendor/chart.js/Chart.min.js" />
-		<!-- Page level custom scripts -->
+		Page level custom scripts
 		<add-attribute value="/resources/js/demo/chart-area-demo.js" />
 		<add-attribute value="/resources/js/demo/chart-pie-demo.js" />
 	</put-list-attribute>
-  </definition>
+  </definition> -->
   
   <definition name="charts" extends="base-admin">
   	<put-attribute name="title" value="Biểu đồ" />
@@ -98,46 +63,25 @@
 	</put-list-attribute> 
   </definition>
   
-  <definition name="404" extends="base-admin">
-  	<put-attribute name="title" value="404" />
-    <put-attribute name="body" value="/WEB-INF/views/jsp/admin/404.jsp"/>
-  </definition>
-  
-  <definition name="tables" extends="base-admin">
-  	<put-attribute name="title" value="Bảng" />
-    <put-attribute name="body" value="/WEB-INF/views/jsp/admin/table.jsp"/>
-    <put-list-attribute name="stylesheets">
-		<!-- Custom styles for this page -->
-  		<add-attribute value="/resources/vendor/datatables/dataTables.bootstrap4.min.css" />
-	</put-list-attribute>
-	<put-list-attribute name="javascripts">
-		<!-- Page level plugins -->
-		<add-attribute value="/resources/vendor/datatables/jquery.dataTables.min.js" />
-		<add-attribute value="/resources/vendor/datatables/dataTables.bootstrap4.min.js" />
-	  	<!-- Page level custom scripts -->
-	  	<add-attribute value="/resources/js/demo/datatables-demo.js" />
-	</put-list-attribute>
-  </definition>
-  
   <!-- Management -->
-  <definition name="admin/management/news" extends="base-admin">
+  <!-- <definition name="admin/management/news" extends="base-admin">
   	<put-attribute name="title" value="Quản lý Tin Tức" />
     <put-attribute name="body" value="/WEB-INF/views/jsp/admin/management/news.jsp"/>
     <put-list-attribute name="stylesheets">
-		<!-- Custom styles for this page -->
+		Custom styles for this page
   		<add-attribute value="/resources/vendor/datatables/dataTables.bootstrap4.min.css" />
 	</put-list-attribute>
 	<put-list-attribute name="javascripts">
-		<!-- Page level plugins -->
+		Page level plugins
 		<add-attribute value="/resources/vendor/datatables/jquery.dataTables.min.js" />
 		<add-attribute value="/resources/vendor/datatables/dataTables.bootstrap4.min.js" />
-	  	<!-- Page level custom scripts -->
+	  	Page level custom scripts
 	  	<add-attribute value="/resources/js/demo/datatables-demo.js" />
-	  	<!-- CKEditor -->
+	  	CKEditor
 	  	<add-attribute value="/resources/plugins/ckeditor/ckeditor.js" />
-	  	<!-- ckfinder -->
+	  	ckfinder
 	  	<add-attribute value="/resources/plugins/ckfinder/ckfinder.js" />
 	</put-list-attribute>
-  </definition>
+  </definition> -->
   
 </tiles-definitions>

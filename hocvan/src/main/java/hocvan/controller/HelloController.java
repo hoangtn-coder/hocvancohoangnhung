@@ -27,11 +27,6 @@ public class HelloController {
 //		return "news";
 //	}
 
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
-	public String hello() {
-		return "home";
-	}
-	
 	@RequestMapping(value = "/login1", method = RequestMethod.GET)
 	public String login() {
 		return "login";

@@ -30,6 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
+import common.util.Constants;
 import common.util.Formater;
 import hocvan.entity.BaseMessage;
 import hocvan.entity.News;
@@ -43,20 +44,65 @@ public class AdminController {
 	
 	@Autowired
 	private NewsDAO newsDAO;
-
+	
 	@RequestMapping(value = {"/management/news"})
 	public ModelAndView main() {
+		Gson gson = new Gson();
 		ModelAndView model = new ModelAndView("admin/management/news");
-		List<News> lstNews = newsDAO.findAll();
-		model.addObject("lstNews", lstNews);
+		List<News> lstNews = newsDAO.getAll(Constants.NEWS);
+		
+		model.addObject("lstNews", gson.toJson(lstNews));
+		//model.addObject("lstNews", lstNews));
 		return model;
+	}
+	
+	@RequestMapping(value = {"/management/news/reLoad"}, method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public ResponseEntity<String> reLoad() {
+		BaseMessage baseMessage = new BaseMessage();
+		Gson gson = new Gson();
+		String rs;
+		try {
+			rs = gson.toJson(newsDAO.getAll(Constants.NEWS));
+		} catch (Exception e) {
+			logger.error(e);
+	    	baseMessage.setDescription("Lỗi: " + e);
+	    	rs = gson.toJson(baseMessage);
+		}
+		return new ResponseEntity<String>(rs, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = {"/management/news/edit"}, method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
 	@ResponseBody
-	public ResponseEntity<String> edit(@RequestParam(value = "id", required = false) int id) {
+	public ResponseEntity<String> edit(@RequestParam(value = "id", required = false) String id) {
+		BaseMessage baseMessage = new BaseMessage();
 		Gson gson = new Gson();
-		String rs = gson.toJson(newsDAO.findById(id));
+		String rs;
+		try {
+			rs = gson.toJson(newsDAO.findById(id));
+		} catch (Exception e) {
+			logger.error(e);
+	    	baseMessage.setDescription("Lỗi: " + e);
+	    	rs = gson.toJson(baseMessage);
+		}
+		return new ResponseEntity<String>(rs, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = {"/management/news/delete"}, method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+	@ResponseBody
+	public ResponseEntity<String> del(@RequestParam(value = "id", required = false) String id) {
+		BaseMessage baseMessage = new BaseMessage();
+		Gson gson = new Gson();
+		try {
+			News news = newsDAO.findById(id);
+			//newsDAO.delete(news);
+			newsDAO.temporaryDelete(news);
+			baseMessage.setDescription(" Xóa bản ghi.");
+		} catch (Exception e) {
+			logger.error(e);
+	    	baseMessage.setDescription("Lỗi: " + e);
+		}
+		String rs = gson.toJson(baseMessage);
 		return new ResponseEntity<String>(rs, HttpStatus.OK);
 	}
 	
@@ -69,36 +115,48 @@ public class AdminController {
 	 	BaseMessage baseMessage = new BaseMessage();
 		MultipartFile multipartFile = rq.getFile("imgInp");
 		try {
-			if(multipartFile.getSize() != 0) {
-				String fileName = formatUtf8(news.getImgInp().getOriginalFilename());
-			    File file = new File(UPLOAD_DIRECTORY, fileName);
-			    multipartFile.transferTo(file);
+			String fileName = null;
+			if(multipartFile.getSize() > 0) {//size > 0, get fileName
+				fileName = formatUtf8(news.getImgInp().getOriginalFilename());
 			    news.setPreviewImage("resources/CKFinderJava/userfiles/images/"+ fileName);
 			}
+			
 			news.setTitle(formatUtf8(news.getTitle()));
 			news.setTag(formatUtf8(news.getTag()));
 			news.setDescription(formatUtf8(news.getDescription()));
-			news.setContentNew(formatUtf8(news.getContentNew()));
+			news.setContent(formatUtf8(news.getContent()));
 			
 		    if(Formater.isNull(news.getId())) {//add
+		    	news.setStatus("1");//active
 		    	news.setCreatedBy(rq.getUserPrincipal().getName());
 		    	news.setCreatedDate(new Date());
 		    	newsDAO.save(news);
+		    	
+		    	if(multipartFile.getSize() != 0) {//size > 0, upfile to folder
+				    File file = new File(UPLOAD_DIRECTORY, fileName);
+				    multipartFile.transferTo(file);
+				}
+		    	baseMessage.setDescription(" Thêm mới bản tin.");
 		    }else {//update
 		    	News newsUpdate =  newsDAO.findById(news.getId());
 		    	newsUpdate.setTitle(news.getTitle());
 		    	newsUpdate.setTag(news.getTag());
 		    	newsUpdate.setDescription(news.getDescription());
-		    	newsUpdate.setContentNew(news.getContentNew());		
+		    	newsUpdate.setContent(news.getContent());		
 		    	newsUpdate.setPreviewImage(news.getPreviewImage());
 		    	newsUpdate.setModifiedBy(rq.getUserPrincipal().getName());
 		    	newsUpdate.setModifiedDate(new Date());
 		    	newsDAO.update(newsUpdate);
+		    	
+		    	if(multipartFile.getSize() != 0) {//size > 0, upfile to folder
+				    File file = new File(UPLOAD_DIRECTORY, fileName);
+				    multipartFile.transferTo(file);
+				}
+		    	baseMessage.setDescription(" Cập nhật bản tin.");
 		    }
-		    baseMessage.setDescription("Thành công");
 	    } catch (Exception e) {
 	    	logger.error(e);
-	    	baseMessage.setDescription("Thất bại");
+	    	baseMessage.setDescription("Lỗi: " + e);
 	    }
 	 	
 	 	String rs = gson.toJson(baseMessage);

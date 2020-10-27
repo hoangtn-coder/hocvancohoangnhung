@@ -12,6 +12,6 @@
         <property name="hibernate.search.autoregister_listeners">true</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
-        <mapping class="hocvan.entity.News"/>
+        <mapping class="hocvan.entity.SysParam"/>
     </session-factory>
 </hibernate-configuration>

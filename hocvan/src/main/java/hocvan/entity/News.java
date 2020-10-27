@@ -1,5 +1,5 @@
 package hocvan.entity;
-// Generated Jul 22, 2020 1:02:29 AM by Hibernate Tools 5.2.12.Final
+// Generated Oct 19, 2020 2:39:47 PM by Hibernate Tools 5.2.12.Final
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -19,49 +19,53 @@ import org.springframework.web.multipart.MultipartFile;
 @Table(name = "news", catalog = "hocvan")
 public class News implements java.io.Serializable {
 
-	private int id;
+	private String id;
 	private Date createdDate;
 	private String createdBy;
 	private Date modifiedDate;
 	private String modifiedBy;
-	private String contentNew;
+	private String content;
 	private String title;
 	private String previewImage;
 	private String tag;
 	private String description;
+	private String status;
+	private String type;
 	
 	private MultipartFile imgInp;
 
 	public News() {
 	}
 
-	public News(int id) {
+	public News(String id, String type) {
 		this.id = id;
+		this.type = type;
 	}
 
-	public News(int id, Date createdDate, String createdBy,
-			Date modifiedDate, String modifiedBy, String contentNew, String title, String previewImage, String tag,
-			String description) {
+	public News(String id, Date createdDate, String createdBy, Date modifiedDate, String modifiedBy, String content,
+			String title, String previewImage, String tag, String description, String status, String type) {
 		this.id = id;
 		this.createdDate = createdDate;
 		this.createdBy = createdBy;
 		this.modifiedDate = modifiedDate;
 		this.modifiedBy = modifiedBy;
-		this.contentNew = contentNew;
+		this.content = content;
 		this.title = title;
 		this.previewImage = previewImage;
 		this.tag = tag;
 		this.description = description;
+		this.status = status;
+		this.type = type;
 	}
 
 	@Id
 
-	@Column(name = "id", unique = true, nullable = false)
-	public int getId() {
+	@Column(name = "id", unique = true, nullable = false, length = 40)
+	public String getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -103,16 +107,16 @@ public class News implements java.io.Serializable {
 		this.modifiedBy = modifiedBy;
 	}
 
-	@Column(name = "content", length = 5000)
-	public String getContentNew() {
-		return contentNew;
+	@Column(name = "content", length = 18000)
+	public String getContent() {
+		return this.content;
 	}
 
-	public void setContentNew(String contentNew) {
-		this.contentNew = contentNew;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	@Column(name = "title", length = 45)
+	@Column(name = "title")
 	public String getTitle() {
 		return this.title;
 	}
@@ -121,7 +125,7 @@ public class News implements java.io.Serializable {
 		this.title = title;
 	}
 
-	@Column(name = "previewImage")
+	@Column(name = "previewImage", length = 1000)
 	public String getPreviewImage() {
 		return this.previewImage;
 	}
@@ -148,6 +152,24 @@ public class News implements java.io.Serializable {
 		this.description = description;
 	}
 
+	@Column(name = "status", length = 1)
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	@Column(name = "type", nullable = false, length = 40)
+	public String getType() {
+		return this.type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	@Transient
 	public MultipartFile getImgInp() {
 		return imgInp;
@@ -156,4 +178,5 @@ public class News implements java.io.Serializable {
 	public void setImgInp(MultipartFile imgInp) {
 		this.imgInp = imgInp;
 	}
+
 }

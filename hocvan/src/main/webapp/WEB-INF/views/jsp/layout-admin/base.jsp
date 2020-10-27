@@ -23,7 +23,7 @@
 	
 	<!-- Custom fonts for this template-->
 	<link href="<spring:url value="/resources/vendor/fontawesome-free/css/all.min.css"/>" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+	<link href="<spring:url value="/resources/css/admin/fonts-googleapis.css"/>" rel="stylesheet">
 	
 	<!-- Custom fonts for this template-->
     <link href="<spring:url value="/resources/css/admin/sb-admin-2.min.css"/>" rel="stylesheet" />
@@ -47,6 +47,62 @@
     		<tiles:insertAttribute name="navbar" />
     		<tiles:insertAttribute name="body" />
     		
+    		<!-- Begin Page Content -->
+    		<div class="container-fluid">
+    			<!-- Begin DivGrid -->
+    			<div id="divGrid">
+    				<tiles:insertAttribute name="divGrid" />
+    			</div>
+    			
+    			<!-- Begin DivDetail -->
+    			<div id="divDetail">
+    				<tiles:insertAttribute name="divDetail" />
+    				
+    				<div class="row">
+	          			<div class="col-xl-12 col-lg-7">
+	          				<div class="card shadow mb-4">
+	          					<div class="card-body">
+	          						<div align="center" class="divaction">
+							        	<input type="button" onclick="save();" value="Lưu" id="btnSave" class="btn btn-primary"> 
+							        	<input type="button" onclick="showConfirmDel()" value="Xóa" id="btnDel" class="btn btn-danger"> 
+							            <input type="button" onclick="cancel()" value="Bỏ qua" id="btlCancel" class="btn btn-secondary">
+							            <!-- <a href="/hocvan/admin/management/news" class="btn btn-secondary">Bỏ qua</a> -->
+							        </div>
+	          					</div>
+	          				</div>
+	          			</div>
+	          		</div>
+    			</div>
+    			
+    			<!-- Modal Message -->
+				<div id="myModal" class="modal fade" role="dialog">
+				  <div class="modal-dialog">
+				    <!-- Modal content-->
+				    <div class="modal-content msg">
+				        <div class="alert alert-success alert-dismissible">
+					  	</div>
+				    </div>
+				  </div>
+				</div>
+			
+				<!-- Modal -->
+				<div id="myModalDel" class="modal fade" role="dialog">
+				  <div class="modal-dialog modal-sm">
+				    <!-- Modal content-->
+				    <div class="modal-content">
+				      <div class="modal-body">
+				        <p>Bạn có chắc chắn xóa bản ghi?</p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+				        <input type="button" onclick="del()" value="Xóa" class="btn btn-danger" data-dismiss="modal"> 
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				
+    		</div>
+    		<!-- /.container-fluid -->
     	</div>
     	<!-- End of Main Content -->
     	
@@ -96,8 +152,6 @@
   <!-- Custom scripts for all pages-->
   <script src="<spring:url value="/resources/js/admin/sb-admin-2.min.js" />"></script>
   
-  <tiles:insertAttribute name="extra-scripts"/>
-    
   <c:forEach var="script" items="${javascripts}">
 	<script src="<c:url value="${script}"/>"></script>
   </c:forEach>
@@ -108,5 +162,6 @@
   <script src="<spring:url value="/resources/js/main.js" />"></script>
   <script src="<spring:url value="/resources/js/messages_vi.js" />"></script>
   
+  <tiles:insertAttribute name="extra-scripts"/>
 </body>
 </html>

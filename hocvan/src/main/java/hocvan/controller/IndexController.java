@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import common.util.Constants;
 import hocvan.entity.News;
 import hocvan.entity.Slide;
 import hocvan.repository.NewsDAO;
@@ -30,12 +31,17 @@ public class IndexController {
 		ModelAndView model = new ModelAndView("index");
 		
 		//News
-		List<News> lstNews = newsDAO.find(1, 3,"");
+		List<News> lstNews = newsDAO.find(1, 6,"",Constants.NEWS);
 		model.addObject("lstNews", lstNews);
 		
 		//Slide
-		List<Slide> lstSlide = slideDAO.getAll(Slide.class);
+		List<Slide> lstSlide = slideDAO.getAll();
 		model.addObject("lstSlide", lstSlide);
-		return model;	
+			
+		//books
+		List<News> lstBooks = newsDAO.find(1, 6,"",Constants.BOOKS);
+		model.addObject("lstBooks", lstBooks);
+		
+		return model;
 	}
 }

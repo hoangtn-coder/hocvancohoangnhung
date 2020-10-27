@@ -5098,7 +5098,7 @@ a.badge-dark:focus {
 .alert {
 	position: relative;
 	padding: .75rem 1.25rem;
-	margin-bottom: 1rem;
+/* 	margin-bottom: 1rem; */
 	border: 1px solid transparent;
 	border-radius: .35rem
 }
@@ -11016,19 +11016,18 @@ form.user .btn-user {
 	box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .5)
 }
 
-/* .error {
+.error-404 {
 	color: #5a5c69;
 	font-size: 7rem;
 	position: relative;
 	line-height: 1;
 	width: 12.5rem
-} */
+}
 
 .error {
     color: #e74a3b;
     position: relative;
     line-height: 1;
-    width: 12.5rem;
 }
 
 @-webkit-keyframes noise-anim {
@@ -11163,7 +11162,7 @@ form.user .btn-user {
 	}
 }
 
-.error:after {
+.error-404:after {
 	content: attr(data-text);
 	position: absolute;
 	left: 2px;

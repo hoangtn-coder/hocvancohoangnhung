@@ -1,6 +1,11 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
+<tiles:insertDefinition name="base-admin">
+	<tiles:putAttribute name="title" value="Dashboard" />
+	<tiles:putAttribute name="body">
 		<!-- Begin Page Content -->
         <div class="container-fluid">
 
@@ -300,3 +305,18 @@
 
         </div>
         <!-- /.container-fluid -->
+	</tiles:putAttribute>
+	<tiles:putListAttribute name="javascripts">
+		<!-- Page level plugins -->
+		<tiles:addAttribute value="/resources/vendor/chart.js/Chart.min.js" />
+	  	<!-- Page level custom scripts -->
+	  	<tiles:addAttribute value="/resources/js/demo/chart-area-demo.js" />
+	  	<tiles:addAttribute value="/resources/js/demo/chart-pie-demo.js" />
+	</tiles:putListAttribute>
+	
+	<tiles:putAttribute name="extra-scripts">
+		<script type="text/javascript">
+			
+  		</script>
+	</tiles:putAttribute>
+</tiles:insertDefinition>

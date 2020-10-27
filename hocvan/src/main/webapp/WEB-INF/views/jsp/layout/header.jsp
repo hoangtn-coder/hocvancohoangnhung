@@ -6,10 +6,21 @@
 		<div id="carouselExampleIndicators" class="carousel slide"
 			data-ride="carousel">
 			<ol class="carousel-indicators">
-				<li data-target="#carouselExampleIndicators" data-slide-to="0"
+				<c:forEach items="${lstSlide}" var="item" varStatus="loop">
+					<c:choose>
+						<c:when test="${loop.index == 0}">
+							<li data-target="#carouselExampleIndicators" data-slide-to="${loop.index}" class="active"></li>
+						</c:when>
+						<c:otherwise>
+							<li data-target="#carouselExampleIndicators" data-slide-to="${loop.index}"></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				
+				<!-- <li data-target="#carouselExampleIndicators" data-slide-to="0"
 					class="active"></li>
 				<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+				<li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
 			</ol>
 			<div class="carousel-inner" role="listbox">
 			

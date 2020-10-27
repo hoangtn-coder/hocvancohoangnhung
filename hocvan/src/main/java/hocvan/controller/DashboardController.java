@@ -10,16 +10,26 @@ public class DashboardController {
 
 	@RequestMapping("/dashboard")
 	public String user() {
-		return "dashboard";
+		return "admin/dashboard";
 	}
 	
-	@RequestMapping("/404")
-	public String error404() {
-		return "404";
+	@RequestMapping("/admin")
+	public String admin() {
+		return "admin/admin";
+	}
+	
+	@RequestMapping("/charts")
+	public String charts() {
+		return "admin/charts";
+	}
+	
+	@RequestMapping("/error")
+	public String error() {
+		return "admin/error";
 	}
 	
 	@RequestMapping("/tables")
 	public String table() {
-		return "tables";
+		return "admin/tables";
 	}
 }

@@ -35,39 +35,66 @@ public class NewsDAO extends SysDao<News>{
 		session.update(news);
 	}
 
-	public News findById(final int id) {
+	public News findById(final String id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		return session.get(News.class, id);
 	}
-
+	
 	public void delete(final News news) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.remove(news);
 	}
-
-	public List<News> findAll() {
+	
+	public void temporaryDelete(final News news) {
 		Session session = this.sessionFactory.getCurrentSession();
-		 return session.createQuery("from News n  ORDER BY n.createdDate DESC", News.class).getResultList();
+		news.setStatus("0");//deactive
+		session.update(news);
+	}
+
+//	public List<News> findAll() {
+//		Session session = this.sessionFactory.getCurrentSession();
+//		 return session.createQuery("from News n ORDER BY n.createdDate DESC", News.class).getResultList();
+//	}
+	
+	@SuppressWarnings({ "deprecation", "unchecked" })
+	public List<News> getAll(String type) {
+		Criteria criteria = getCurrentSession().createCriteria(News.class);
+		criteria.add(Restrictions.ge("status", "1"));
+		
+		if(!Formater.isNull(type)) {
+			criteria.add(Restrictions.ge("type", type));
+		}
+		
+		criteria.addOrder(Order.desc("createdDate"));
+		return criteria.list();
 	}
 	
 	public List<News> search(String keyWord) {
 		List<News> news = null;
 		Criteria criteria = getCurrentSession().createCriteria(News.class);
 		criteria.add(Restrictions.like("title", keyWord, MatchMode.ANYWHERE).ignoreCase());
+		criteria.add(Restrictions.ge("status", "1"));
+		criteria.addOrder(Order.desc("createdDate"));
 		news = criteria.list();
 		return news;
 	}
 	
-	public Long getTotalResults(String keyWord) {
+	public Long getTotalResults(String keyWord, String type) {
 		Criteria criteria = getCurrentSession().createCriteria(News.class);
 		if(!Formater.isNull(keyWord)) {
 			criteria.add(Restrictions.like("title", keyWord, MatchMode.ANYWHERE).ignoreCase());
 		}
+		criteria.add(Restrictions.ge("status", "1"));
+		
+		if(!Formater.isNull(type)) {
+			criteria.add(Restrictions.ge("type", type));
+		}
+		
 		criteria.setProjection(Projections.countDistinct("id"));
 		return (Long) criteria.uniqueResult();
 	}
 	
-	public List<News> find(int pageNumber, int pageSize,String keyWord) {
+	public List<News> find(int pageNumber, int pageSize,String keyWord,String type) {
 		Criteria criteria = getCurrentSession().createCriteria(News.class);
 		
 		// Paging with unique IDs
@@ -79,6 +106,13 @@ public class NewsDAO extends SysDao<News>{
 			criteria.setFirstResult((pageNumber - 1) * pageSize);
 			criteria.setMaxResults(pageSize);
 		}
+		criteria.add(Restrictions.ge("status", "1"));
+		
+		if(!Formater.isNull(type)) {
+			criteria.add(Restrictions.ge("type", type));
+		}
+		
+		criteria.addOrder(Order.desc("createdDate"));
 		List uniqueList = criteria.list();
 		
 		// find by unique IDs
@@ -88,7 +122,7 @@ public class NewsDAO extends SysDao<News>{
 			criteria.setMaxResults(Integer.MAX_VALUE);
 			criteria.add(Restrictions.in("id", uniqueList));
 			criteria.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
-			criteria.addOrder(Order.asc("id"));
+			criteria.addOrder(Order.desc("createdDate"));
 			return criteria.list();
 		} else {
 			return new ArrayList();

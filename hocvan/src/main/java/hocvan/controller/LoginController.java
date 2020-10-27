@@ -37,22 +37,12 @@ public class LoginController {
 				m.addAttribute("message", "Đăng nhập thất bại!");
 			}
 		}
-		return "login";
+		return "admin/login";
 	}
 
-	@RequestMapping("/admin")
-	public String admin() {
-		return "admin";
-	}
-	
-	@RequestMapping("/charts")
-	public String charts() {
-		return "charts";
-	}
-	
 	@RequestMapping("/logout")
 	public String logout(final Model model) {
 		model.addAttribute("message", "Logged out!");
-		return "login";
+		return "admin/login";
 	}
 }

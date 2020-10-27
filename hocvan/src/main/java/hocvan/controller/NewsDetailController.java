@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import common.util.Constants;
 import common.util.Formater;
 import common.util.Utils;
 import hocvan.entity.News;
-import hocvan.entity.SideWidget;
 import hocvan.entity.TagWidget;
 import hocvan.repository.NewsDAO;
 
@@ -28,7 +28,7 @@ public class NewsDetailController {
 	private NewsDAO newsDAO;
 	
 	@RequestMapping(value = {"/",""}, method = RequestMethod.GET)
-	public ModelAndView newsDetail(@RequestParam(value = "newsId",required = false) Integer newsId,
+	public ModelAndView newsDetail(@RequestParam(value = "newsId",required = false) String newsId,
 			HttpSession session, Model m) {
 		ModelAndView model = new ModelAndView("news-detail");		
 		News news = newsDAO.findById(newsId);
@@ -37,10 +37,10 @@ public class NewsDetailController {
 		model.addObject("titleNews", news.getTitle());
 		model.addObject("previewImage", news.getPreviewImage());
 		model.addObject("createDate", Formater.sdfNews(news.getCreatedDate()));
-		model.addObject("content", news.getContentNew());
+		model.addObject("content", news.getContent());
 		
 		//Side Widget
-		List<News> lstNews = newsDAO.find(1, 3,"");
+		List<News> lstNews = newsDAO.find(1, 6,"",Constants.NEWS);
 		model.addObject("lstNews", lstNews);
 		
 		
