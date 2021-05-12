@@ -9,7 +9,7 @@
 
 	<properties>
 		<spring.version>5.0.2.RELEASE</spring.version>
-		<spring.security.version>5.0.2.RELEASE</spring.security.version>
+		<spring.security.version>5.2.10.RELEASE</spring.security.version>
 		<hibernate.version>5.2.12.Final</hibernate.version>
 		<jstl.version>1.2</jstl.version>
 	</properties>
